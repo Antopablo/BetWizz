@@ -11,7 +11,10 @@ export default function GamePlayScreen() {
     const handlePlay = () => {
         switch (game?.id) {
             case "hiddentreasure":
-                router.push(`/game/${game.id}/playHiddenTreasure`);
+                router.replace("/game/games/HiddenTreasure");
+                break;
+            case 'luckybet':
+                router.push(`/game/${game.id}/games/playLuckyBet`);
                 break;
             default:
                 console.warn("Pas de page définie pour ce jeu");

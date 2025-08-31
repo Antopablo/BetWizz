@@ -6,5 +6,6 @@ export const colors = {
     text: "#e5e7eb",
     subtext: "#9ca3af",
     accent: "#22c55e",
-    white: "#fff"
+    white: "#fff",
+    action: "#fce375ff"
 };
