@@ -14,7 +14,7 @@ export default function GamePlayScreen() {
                 router.replace("/game/games/HiddenTreasure");
                 break;
             case 'luckybet':
-                router.push(`/game/${game.id}/games/playLuckyBet`);
+                router.push(`/game/games/LuckyBet`);
                 break;
             default:
                 console.warn("Pas de page définie pour ce jeu");

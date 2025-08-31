@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { View, Text, Pressable, ScrollView, Vibration } from "react-native";
 import { colors } from "../../../../theme";
+import BetInput from "./betInput"
 
 type TreasureType = "empty" | "jackpot";
 
@@ -48,7 +49,9 @@ export function generateWeightedGrid(rows = 2, cols = 2) {
 export default function Luckybet() {
     const [grid, setGrid] = useState(generateWeightedGrid());
     const [balance, setBalance] = useState(100); // joueur commence avec 100 jetons
-    const [loading, setLoading] = useState(false); // 
+    const [loading, setLoading] = useState(false);
+    const [bet, setBet] = useState(1);
+    const [autoDouble, setAutoDouble] = useState(false);
 
     const revealCell = (rowIndex: number, colIndex: number) => {
         if (balance >= 1) {
@@ -62,13 +65,17 @@ export default function Luckybet() {
                             const reward = rewards[cell.type];
 
                             // Chaque clic coûte 1 jeton
-                            setBalance((b) => b - 1);
+                            setBalance((b) => b - bet);
 
                             // Gain éventuel
-                            setBalance((b) => b + rewards[cell.type]);
+                            setBalance((b) => b + bet * rewards[cell.type]);
 
                             if (reward > 0) {
                                 Vibration.vibrate(100); // 200ms
+                            }
+
+                            if (reward === 0 && autoDouble) {
+                                setBet(prev => Math.min(prev * 2));
                             }
 
                             return { ...cell, revealed: true };
@@ -144,7 +151,7 @@ export default function Luckybet() {
             ))}
 
 
-            {/* <RewardLegend /> */}
+            <BetInput value={bet} onChange={setBet} maxBet={balance} autoDouble={autoDouble} setAutoDouble={setAutoDouble} />
 
         </ScrollView>
     );
