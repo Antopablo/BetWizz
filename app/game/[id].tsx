@@ -16,6 +16,9 @@ export default function GamePlayScreen() {
             case 'luckybet':
                 router.push(`/game/games/LuckyBet`);
                 break;
+            case 'aviator':
+                router.push(`/game/games/Aviator`);
+                break;
             default:
                 console.warn("Pas de page définie pour ce jeu");
         }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { View, Text, TextInput, StyleSheet, Pressable, Switch } from "react-native";
-import { colors } from "../../../../theme";
+import { colors } from "../../../../../theme";
 
 type BetInputProps = {
     value: number;

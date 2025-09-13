@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { View, Text, Pressable, ScrollView, Animated, Easing } from "react-native";
 import { colors } from "../../../../theme";
-import RewardLegend from "./legendHiddenTreasure";
+import RewardLegend from "./components/legendHiddenTreasure";
 
 type TreasureType = "empty" | "half" | "one" | "two" | "ten" | "jackpot";
 

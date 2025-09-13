@@ -1,5 +1,5 @@
 import { View, Text, ScrollView, StyleSheet } from "react-native";
-import { colors } from "../../../../theme";
+import { colors } from "../../../../../theme";
 
 const rewardTable = [
     { emoji: "❌", reward: 0 },

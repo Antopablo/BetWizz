@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { View, Text, Pressable, ScrollView, Vibration } from "react-native";
 import { colors } from "../../../../theme";
-import BetInput from "./betInput"
+import BetInput from "./components/betInput"
 
 type TreasureType = "empty" | "jackpot";
 
