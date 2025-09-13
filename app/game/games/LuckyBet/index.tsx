@@ -71,11 +71,13 @@ export default function Luckybet() {
                             setBalance((b) => b + bet * rewards[cell.type]);
 
                             if (reward > 0) {
-                                Vibration.vibrate(100); // 200ms
+                                Vibration.vibrate(100);
                             }
 
                             if (reward === 0 && autoDouble) {
-                                setBet(prev => Math.min(prev * 2));
+                                const newBalance = balance - bet;
+                                const newBet = Math.min(bet * 2, newBalance);
+                                setBet(newBet);
                             }
 
                             return { ...cell, revealed: true };
